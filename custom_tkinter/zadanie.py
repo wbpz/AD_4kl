@@ -14,7 +14,9 @@ def set_theme(theme: string) -> None:
 def read_settings():
     file = open(SETTINGS_FILE, "r", encoding="utf-8")
     if not file: return {}
-    return json.loads(file.read())
+    object = json.loads(file.read())
+    file.close()
+    return object
 
 settings = read_settings()
 
